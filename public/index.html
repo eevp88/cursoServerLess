@@ -11,27 +11,36 @@
 
 </head>
 <body>
-    <form id="form_pet" method="post">
+    <div class="container">
+        <h1>Pets</h1>
+        <p>Esta es una aplicación de ejemplo para el curso de Serverless</p>
+    
+    <form id="form_pet" method="post" class="mb-3">
         <input type="text" name="name" placeholder="Nombre del archivo" required>
         <input type="text" name="type" placeholder="Tipo de archivo" required>
         <input type="text" name="description" placeholder="Descripción del archivo">
         <button type="submit">Enviar</button>
         <button type="reset">Limpiar</button>
     </form>
-    <table>
-        <thead>
-            <th>Nombre</th>
-            <th>Tipo</th>
-            <th>Descripcion</th>
-            <th>Acción</th>
-        </thead>
-        <tbody id="list_pets">
-            <tr>
-                <td>Cargando...</td>
-                
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="table-responsive" >
+            <table class="table table-striped table-bordered table-hover">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Descripcion</th>
+                    <th>Acción</th>
+                </thead>
+                <tbody id="list_pets">
+                    <tr>
+                        <td>Cargando...</td>
+                    
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
