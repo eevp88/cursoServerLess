@@ -40,7 +40,8 @@ app.post("/pets", async (req, res) => {
     const {body} = req;
     const newPet = await pets?.create(body);
     await newPet?.save();
-    res.sendStatus(201);
+    const idPet = {_id: newPet?._id};
+    res.status(201).send(idPet);
   } catch (error) {
     console.error("Error creating pet:", error);
     res.status(500).send({error: "Failed to create pet"});
