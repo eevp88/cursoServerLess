@@ -1,0 +1,27 @@
+meta {
+  name: createPet
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://us-central1-rest-api-60c8a.cloudfunctions.net/api/pets
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "Firulais",
+    "type": "perro",
+    "description": "Un perro muy amigable"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

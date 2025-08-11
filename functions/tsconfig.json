@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "outDir": "lib",
+    "rootDir": "src",
+    "strict": true,
+    "resolveJsonModule": true,
+    //"forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    //"noImplicitReturns": true,
+    //"noUnusedLocals": true,
+    
+    //"sourceMap": true,
+        
+    
+    
+    //"noImplicitAny": true,
+
+    
+    //"moduleResolution": "bundler",
+   // "allowImportingTsExtensions": true,
+    //"verbatimModuleSyntax": true,
+   // "noEmit": true
+
+  },
+  "compileOnSave": true,
+  "include": [
+    "src"
+  ]
+}
