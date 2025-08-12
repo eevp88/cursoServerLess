@@ -1,6 +1,8 @@
+const url = 'https://us-central1-rest-api-60c8a.cloudfunctions.net/api/pets';
+
 const fetchPets = async () => {
     try {
-        const response = await fetch('https://us-central1-rest-api-60c8a.cloudfunctions.net/api/pets');
+        const response = await fetch(url);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -13,15 +15,12 @@ const fetchPets = async () => {
 
 const darDeBaja = async (id) => {
     try {
-        const response = await fetch(`https://us-central1-rest-api-60c8a.cloudfunctions.net/api/pets/${id}/daralta`);
-        console.log(response);
+        const response = await fetch(`${url}/${id}/daralta`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        //const result = await response.json();
-        //console.log('Pet deleted:', id);
-        // Optionally, you can refresh the list of pets after deletion
-        window.location.reload();
+        const btn = document.getElementById(id);
+        btn.parentElement.parentElement.remove();
     } catch (error) {
         console.error('There has been a problem with your delete operation:', error);
     }
@@ -33,7 +32,7 @@ const tableTemplate = ({_id, name,type, description }) => {
         <td>${type}</td>
         <td>${description}</td>
         <td>
-            <button onclick="darDeBaja('${_id}')" >Dar de Baja</button> 
+            <button class="btn btn-primary" id="${_id}" onclick="darDeBaja('${_id}')" >Dar de Baja</button> 
         </td>
     </tr>
     `; 
@@ -41,7 +40,6 @@ const tableTemplate = ({_id, name,type, description }) => {
 
 const handlerSubmit = async (e) => {
     e.preventDefault();
-    console.log('Submitting form : ', e.target.elements);
     const { name, type, description } = e.target.elements;
     const pet = {
         name: name.value,
@@ -49,7 +47,7 @@ const handlerSubmit = async (e) => {
         description: description.value
     };
     try {
-        const response = await fetch('https://us-central1-rest-api-60c8a.cloudfunctions.net/api/pets', {
+        const response = await fetch(url,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
