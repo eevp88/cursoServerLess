@@ -1,4 +1,4 @@
-const url = 'https://us-central1-rest-api-60c8a.cloudfunctions.net/api/pets';
+const url = '/api/pets';
 
 const fetchPets = async () => {
     try {
